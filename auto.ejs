@@ -1,0 +1,160 @@
+
+
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/archivo.CSS">
+    <link rel="stylesheet" href="./css/style.CSS">
+    <title>Tienda de Vehículos</title>
+  </head>
+  <body>
+    <!-- inicio menú -->
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="/index"><img class="ffoto" src="/imagenes/logo13.png"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+  
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="/">Inicio <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/Vistavendedor">¿QUIERES VENDER ALGO?</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                BUSCAR POR CATEGORIAS
+                </a>
+                
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="/Automoviles">Automoviles</a>
+                  <a class="dropdown-item" href="/Camionetas">Camionetas</a>
+                  <a class="dropdown-item" href="/Camperos">Camperos</a>
+                  <a class="dropdown-item" href="/Deportivos">Deportivos</a>
+                  <a class="dropdown-item" href="/Buses">Buses</a>
+                  <a class="dropdown-item" href="/Camiones">Camiones</a>
+                  <a class="dropdown-item" href="/Motos">Motos</a
+                 >
+                 
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/index">¿QUIERES COMPRAR ALGO?</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/login">Inicia Sesion</a>
+              </li>
+            </ul>
+            
+  
+          </div>
+        </nav>
+      </div>
+    <!-- vehiculos -->
+    <div>
+      <form class="form-inline my-2 my-lg-0" action="/BuscarVe" method="POST">
+        <select class="form-control mr-sm-2"  name="Marca" required>
+         
+          <option value="CHEVROLET">CHEVROLET</option>
+
+          <option value="SUZUKI">SUZUKI</option>
+          
+          <option value="RENAULT">RENAULT</option>
+
+          <option value="bmw">BMW</option>
+
+          <option value="AUDI">AUDI</option>
+
+          <option value="TOYOTA">TOYOTA</option>
+
+          <option value="FORD">FORD</option>
+
+          <option value="MERCEDES-BENZ">MERCEDES-BENZ</option>
+
+          
+          
+          
+     
+          
+          </select>
+       <input class="form-control mr-sm-2"  name="Linea" placeholder="Linea Del Vehiculo">
+        <select class="form-control mr-sm-2"  name="Modelo">
+          <option>MODELOS</option> 
+          <option value="2015">2015</option> 
+          <option value="2016">2016</option> 
+          <option value="2017">2017</option>
+          <option value="2018">2018</option> 
+          <option value="2019">2019</option> 
+          <option value="2020">2020</option> 
+          <option value="2021">2021</option> 
+      </select>
+        <input class="form-control mr-sm-2" type="search" name="PrecioM" placeholder="PRECIO DESDE " aria-label="Search">
+        <input class="form-control mr-sm-2" type="search" name="PrecioMa" placeholder="PRECIO HASTA" aria-label="Search">
+       
+        <select class="form-control mr-sm-2" name="Tipo">
+          <option value="7">AUTOMOVIL</option> 
+          <option value="3">CAMIONETA</option> 
+          <option value="8">CAMPEROS</option>
+          <option value="9">DEPORTIVO</option> 
+          <option value="2">BUS</option> 
+          <option value="5">CAMION</option> 
+          <option value="7">MOTOS</option> 
+          <option value="4">VOLQUETA</option> 
+          <option value="6">MOTO</option> 
+       </select>
+     
+  
+    <select class="form-control mr-sm-2" name="Estado">
+      <option>ESTADO DEL VEHICULO</option> 
+      <option value="nuevo">Nuevo</option> 
+      <option value="usado">Usado</option>
+    
+    </select>
+        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Buscar vehículo</button>
+      </form>
+    </div>
+<div>
+  <H2> <center> INFORMACION CATEGORIAS </center> </H2>
+</div>
+    <div class="container">
+    
+      <div class="row">
+    
+     
+        <% Datos.forEach(function (Datos){ %>
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="./imagenes/<%=Datos.imagen%>" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title"><%=Datos.vehmarca%> <%=Datos.vehlinea%></h5>
+              <h5 class="card-title"><%=Datos.vehprecio%></h5>
+              <h5 class="card-title"><%=Datos.vehmodelo%></h5>
+           
+              <a href="/detalles/<%=Datos.datid%>/<%=Datos.vehplaca%>" class="btn btn-primary">VER DETALLES</a>
+            </div>
+          </div>
+
+        <%})%>
+
+      
+
+      </div>
+      
+    </div>
+    <!-- fin vehiculos -->
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+  </body>
+</html>
